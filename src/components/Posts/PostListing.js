@@ -8,7 +8,7 @@ const StyledBlogLink = styled(Link)`
 `
 
 const StyledArticle = styled.article`
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 `
 
 const PostListing = ( props ) => {
