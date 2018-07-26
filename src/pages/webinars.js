@@ -17,7 +17,7 @@ export default class webinars extends Component {
               <div className="card-columns">
                 {data.allContentfulWebinar.edges.map(({ node }, index) => {
                     return (
-                        <div className="card">
+                        <div key={node.title} className="card">
                           <div className="card-body">
                           <h5 className="mb-3">{node.title}</h5>
                             <p>{node.datePosted}</p>
