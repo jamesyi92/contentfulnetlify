@@ -15,21 +15,19 @@ export default class webinars extends Component {
             <div className="col-md-12">
               <h3 className="mb-4">Webinars</h3>
               <div className="card-columns">
-                <div className="card">
-                 <div className="card-body">
-                 {data.allContentfulWebinar.edges.map(({ node }, index) => {
-                     return (
-                         <div>
-                           <h5 className="mb-3">{node.title}</h5>
-                           <p>{node.datePosted}</p>
-                           <div dangerouslySetInnerHTML={{
-                               __html: node.description
-                             }} />
-                         </div>
-                       )
-                   })}
-                 </div>
-                </div>
+                {data.allContentfulWebinar.edges.map(({ node }, index) => {
+                    return (
+                        <div className="card">
+                          <div className="card-body">
+                          <h5 className="mb-3">{node.title}</h5>
+                            <p>{node.datePosted}</p>
+                            <div dangerouslySetInnerHTML={{
+                                __html: node.description
+                              }} />
+                          </div>
+                        </div>
+                      )
+                  })}
               </div>
             </div>
           </div>
