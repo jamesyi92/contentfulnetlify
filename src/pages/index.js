@@ -1,16 +1,29 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import PostListing from '../components/Posts/PostListing'
+import SectionWrapper from '../components/SectionWrapper'
 
-const IndexPage = ({ data }) => (
-  <div>
-    {data.allContentfulBlogPost.edges.map(({ node }) => {
-      return (
-          <PostListing key={node.id} post={node} />
-        )
-    })}
-  </div>
-)
+const IndexPage = ({ data }) => {
+
+  const postItems = data.allContentfulBlogPost.edges.map(({ node }, index) => {
+                      return (
+                          <PostListing key={node.id} post={node} currCount={index} />
+                        )
+                    })
+
+  return (
+    <SectionWrapper>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h3 className="mb-4">Blog Posts</h3>
+            {postItems}
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+  )
+}
 export default IndexPage;
 
 export const query = graphql`
@@ -20,13 +33,13 @@ export const query = graphql`
         title
       }
     }
-    allContentfulBlogPost {
-      edges {
-        node {
-          id
-          title
+    allContentfulBlogPost(sort: {fields: [datePosted], order: DESC}){
+      edges{
+        node{
           slug
-          body {
+          datePosted(formatString: "MMMM DD, YYYY")
+          title
+          body{
             body
           }
         }

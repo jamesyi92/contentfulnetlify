@@ -7,14 +7,20 @@ const StyledBlogLink = styled(Link)`
   text-decoration: none;
 `
 
-const StyledArticle = styled.article`
-  margin-bottom: 30px;
+const StyledArticle = styled.div`
+  margin-bottom: 25px;
+  padding: 30px;
+  border: 1px solid #cdcdcd;
 `
 
 const PostListing = ( props ) => {
+
+
+
   return (
     <StyledArticle>
       <h3><StyledBlogLink to={props.post.slug}>{props.post.title}</StyledBlogLink></h3>
+      <p>{props.post.datePosted}</p>
       <div dangerouslySetInnerHTML={{
           __html: props.post.body.body
         }} />

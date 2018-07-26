@@ -2,32 +2,25 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+  <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div className="container">
+      <Link className="navbar-brand" href="#">SandBox</Link>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon" />
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link exact activeClassName="active" className="nav-link" href="/">Blog</Link>
+          </li>
+          <li className="nav-item">
+            <Link activeClassName="active" className="nav-link" to="/webinars">Webinars</Link>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </nav>
+
 )
 
 export default Header
