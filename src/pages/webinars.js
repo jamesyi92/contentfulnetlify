@@ -40,7 +40,7 @@ export default class webinars extends Component {
 
 export const query = graphql`
   query WebinarPageQuery {
-    allContentfulWebinar{
+    allContentfulWebinar(sort: {fields: [datePosted], order: DESC}){
       edges{
         node{
           title
