@@ -12,6 +12,7 @@ module.exports = {
         accessToken: '8b3acef24e6a6e983f563d7b496b2f13600d79203446002b4e16f22fca9ba3a5'
       }
     },
-    'gatsby-transformer-remark'
+    'gatsby-transformer-remark',
+    'gatsby-plugin-react-next'
   ],
 }

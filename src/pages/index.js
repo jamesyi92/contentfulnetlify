@@ -7,7 +7,7 @@ const IndexPage = ({ data }) => {
 
   const postItems = data.allContentfulBlogPost.edges.map(({ node }, index) => {
                       return (
-                          <PostListing key={node.id} post={node} currCount={index} />
+                          <PostListing key={node.title} post={node} currCount={index} />
                         )
                     })
 
