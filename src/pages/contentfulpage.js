@@ -10,7 +10,7 @@ export default class contentfulpage extends Component {
 
 
   state = {
-    contentType: null,
+    contentType: 'Blog Posts',
     posts: []
   }
 
