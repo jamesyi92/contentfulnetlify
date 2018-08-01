@@ -15,8 +15,8 @@ export default class contentfulpage extends Component {
   }
 
   client = contentful.createClient({
-    space: '5q6evypthjgp',
-    accessToken: '8b3acef24e6a6e983f563d7b496b2f13600d79203446002b4e16f22fca9ba3a5'
+    space: process.env.GATSBY_CONTENTFUL_SPACE,
+    accessToken: process.env.GATSBY_CONTENTFUL_TOKEN
   })
 
   // componentDidMount() {
