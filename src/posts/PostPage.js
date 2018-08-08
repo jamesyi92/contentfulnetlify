@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 import SectionWrapper from '../components/SectionWrapper'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
+
+
 
 class PostPage extends Component {
+
+  renderBlogImg(data) {
+    if(data.contentfulBlogPost.featuredImage !== null){
+      return( 
+        <div className="col-md-8 mb-4 offset-md-2">
+          <Img sizes={data.contentfulBlogPost.featuredImage.sizes} />
+        </div>
+      )
+    }
+    else {
+      return null;
+    }
+  }
+
   render() {
     const { data } = this.props;
+
     return (
       <SectionWrapper>
         <div className="container">
@@ -15,6 +33,9 @@ class PostPage extends Component {
                   <Link to="/">Go Back</Link>
                 </em>
               </p>
+            </div>
+            {this.renderBlogImg(data)}
+            <div className="col-md-12">
               <h1>{data.contentfulBlogPost.title}</h1>
                 <div dangerouslySetInnerHTML={{
                   __html: data.contentfulBlogPost.body.body
@@ -36,6 +57,16 @@ export const query = graphql`
       slug
       body{
         body
+      }
+      featuredImage{
+        sizes(maxWidth: 840){
+          ...GatsbyContentfulSizes
+        }
+        resolutions{
+          src
+          srcSet
+          base64
+        }
       }
     }
   }

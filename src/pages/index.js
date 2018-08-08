@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import PostListing from '../components/Posts/PostListing'
 import SectionWrapper from '../components/SectionWrapper'
 
-const IndexPage = ({ data }) => {
+const IndexPage2 = ({ data }) => {
 
   const postItems = data.allContentfulBlogPost.edges.map(({ node }, index) => {
                       return (
@@ -24,7 +24,7 @@ const IndexPage = ({ data }) => {
     </SectionWrapper>
   )
 }
-export default IndexPage;
+export default IndexPage2;
 
 export const query = graphql`
   query IndexPageQuery {
