@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SectionWrapper from '../components/SectionWrapper'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
+import Helmet from 'react-helmet'
 
 
 
@@ -24,26 +25,29 @@ class PostPage extends Component {
     const { data } = this.props;
 
     return (
-      <SectionWrapper>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <p>
-                <em>
-                  <Link to="/">Go Back</Link>
-                </em>
-              </p>
-            </div>
-            {this.renderBlogImg(data)}
-            <div className="col-md-12">
-              <h1>{data.contentfulBlogPost.title}</h1>
-                <div dangerouslySetInnerHTML={{
-                  __html: data.contentfulBlogPost.body.body
-                }} />
+      <React.Fragment>
+        <Helmet title={data.contentfulBlogPost.title} />
+        <SectionWrapper>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <p>
+                  <em>
+                    <Link to="/">Go Back</Link>
+                  </em>
+                </p>
+              </div>
+              {this.renderBlogImg(data)}
+              <div className="col-md-12">
+                <h1>{data.contentfulBlogPost.title}</h1>
+                  <div dangerouslySetInnerHTML={{
+                    __html: data.contentfulBlogPost.body.body
+                  }} />
+              </div>
             </div>
           </div>
-        </div>
-      </SectionWrapper>
+        </SectionWrapper>
+      </React.Fragment>
     );
   }
 }
